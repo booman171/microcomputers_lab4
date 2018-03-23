@@ -12,7 +12,7 @@ void delay(void);
 void longDelay(void){
 	int i;
 	for(i=50;i>0;i--){
-		delay();
+		//delay();
 	}
 }
 

@@ -1,5 +1,5 @@
 PROJECT = lab4
-ledmake:
+lab4:
 	avr-as -mmcu=atmega328p -o $(PROJECT)a.o $(PROJECT).asm
 	avr-gcc -mmcu=atmega328p -c -o $(PROJECT)c.o $(PROJECT).c
 	avr-ld -o $(PROJECT).elf $(PROJECT)a.o $(PROJECT)c.o 

@@ -7,7 +7,7 @@
 void outPortD(int);
 int inPortD(void);
 void initPortD(int);
-void delay(void);
+//void delay(void);
 
 void longDelay(void){
 	int i;
@@ -34,14 +34,14 @@ void waitForTrigger(void){
 void __main(void)
 {
 	initPortD(LED_MASK);
-	outPortD(0b110);
+//	outPortD(0b110);
 	int a, b;
 	while(1){
 		waitForTrigger();
-		a = (inPortD() & INPUT_MASK) >> 3;
-		waitForTrigger();
-		b = (inPortD() & INPUT_MASK) >> 3;
-		waitForTrigger();
-		outPortD(a+b);
+		//a = (inPortD() & INPUT_MASK) >> 3;
+		//waitForTrigger();
+		//b = (inPortD() & INPUT_MASK) >> 3;
+		//waitForTrigger();
+		//outPortD(a+b);
 	}
 }

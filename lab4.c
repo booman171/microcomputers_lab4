@@ -19,14 +19,17 @@ void longDelay(void){
 void waitForTrigger(void){
 	// Wait until zero
 	while(inPortD() & TRIGGER_MASK);
+	outPortD(1);
 	longDelay();
 
 	// Wait until one
 	while(!(inPortD() & TRIGGER_MASK));
+	outPortD(2);
 	longDelay();
 	
 	// Wait until zero again
 	while(inPortD() & TRIGGER_MASK);
+	outPortD(3);
 	longDelay();
 }
 
@@ -34,14 +37,19 @@ void waitForTrigger(void){
 void __main(void)
 {
 	initPortD(LED_MASK);
-//	outPortD(0b110);
-	int a, b;
+	outPortD(0b110);
+	int a = 0;
+	int b = 0;
 	while(1){
 		waitForTrigger();
-		//a = (inPortD() & INPUT_MASK) >> 3;
-		//waitForTrigger();
-		//b = (inPortD() & INPUT_MASK) >> 3;
-		//waitForTrigger();
-		//outPortD(a+b);
+		a = (inPortD() & INPUT_MASK) >> 3;
+		waitForTrigger();
+		b = (inPortD() & INPUT_MASK) >> 3;
+		waitForTrigger();
+		outPortD(a+b);
 	}
 }
+
+// Regular outputs: 0 1 2
+// Regular inputs:  3 4 5
+// Trigger output:  6

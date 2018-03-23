@@ -24,7 +24,8 @@ outPortD:
 	ret
 
 inPortD:
-	in r24, PORTD
+	ldi r25, 0x00
+	in r24, PIND
 	ret
 
 delay:
